@@ -26,7 +26,7 @@ Oferecer uma ferramenta simples e acolhedora para que usuários possam registrar
 - `/js/diario.js` - Lógica do diário
 - `/js/faleconosco.js` - Lógica de contato
 
-## 🚀 Deploy
+## Deploy
 
 Disponivel:
 
