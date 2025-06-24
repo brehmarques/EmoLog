@@ -28,7 +28,7 @@ Oferecer uma ferramenta simples e acolhedora para que usuários possam registrar
 
 ## 🚀 Deploy
 
-Visualize em: [https://seuusuario.github.io/EmoLog](https://seuusuario.github.io/EmoLog)
+Disponivel:
 
 ## 🧠 Desenvolvido por
 
