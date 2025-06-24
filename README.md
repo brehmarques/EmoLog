@@ -28,7 +28,7 @@ Oferecer uma ferramenta simples e acolhedora para que usuários possam registrar
 
 ## Deploy
 
-Disponivel:
+Disponivel: https://brehmarques.github.io/EmoLog/ 
 
 ## 🧠 Desenvolvido por
 
