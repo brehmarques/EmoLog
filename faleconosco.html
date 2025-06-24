@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <title>Fale Conosco</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header>
+    <h1>Fale Conosco</h1>
+    <nav>
+      <a href="index.html">Início</a>
+      <a href="diario.html">Meu Diário</a>
+      <a href="sobre.html">Sobre</a>
+      <a href="faleconosco.html">Contato</a>
+    </nav>
+  </header>
+  <main>
+    <form onsubmit="enviarMensagem(event)">
+      <label for="nome">Nome:</label>
+      <input type="text" id="nome" required>
+      <label for="email">E-mail:</label>
+      <input type="email" id="email" required>
+      <label for="mensagem">Mensagem:</label>
+      <textarea id="mensagem" required></textarea>
+      <button type="submit">Enviar</button>
+    </form>
+  </main>
+  <footer>
+    <p>&copy; 2025 EmoLog</p>
+  </footer>
+  <script src="js/faleconosco.js"></script>
+</body>
+</html>
