@@ -1,91 +1,36 @@
-* {
+body {
+  font-family: Arial, sans-serif;
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
-  font-family: 'Poppins', sans-serif; /* Fonte clean, moderna */
 }
-
-body {
-  background-color: #FAFAFA;
-  color: #1F2937;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: flex-start;
+header, footer {
+  background-color: #8e44ad;
+  color: white;
+  text-align: center;
+  padding: 1rem;
+}
+nav a {
+  margin: 0 10px;
+  color: white;
+  text-decoration: none;
+}
+main {
   padding: 20px;
 }
-
-.container {
-  width: 100%;
-  max-width: 420px;
-  background: #FFFFFF;
-  border-radius: 16px;
-  box-shadow: 0 6px 12px rgba(124, 58, 174, 0.15);
-  padding: 24px;
-  margin: 20px 0;
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  max-width: 400px;
+  margin: auto;
 }
-
-h1, h2 {
-  color: #7C3AED;
-  font-weight: 700;
-  margin-bottom: 16px;
-}
-
-button {
-  background-color: #7C3AED;
-  color: white;
-  border: none;
-  border-radius: 12px;
-  padding: 14px 0;
-  width: 100%;
-  font-weight: 600;
-  font-size: 1.1rem;
-  cursor: pointer;
-  box-shadow: 0 4px 8px rgba(124, 58, 174, 0.3);
-  transition: background-color 0.3s ease;
-}
-
-button:hover {
-  background-color: #A78BFA;
-}
-
-input[type="email"],
-input[type="password"],
-input[type="text"],
-textarea {
-  width: 100%;
-  padding: 14px 16px;
-  border-radius: 12px;
-  border: 1.5px solid #D8B4FE;
+textarea, input, select {
+  padding: 8px;
   font-size: 1rem;
-  margin-bottom: 16px;
-  transition: border-color 0.3s ease;
 }
-
-input[type="email"]:focus,
-input[type="password"]:focus,
-input[type="text"]:focus,
-textarea:focus {
-  border-color: #7C3AED;
-  outline: none;
-}
-
-.emoji-logo {
-  font-size: 4rem;
-  margin-bottom: 16px;
-  text-align: center;
-}
-
-small {
-  color: #7C3AED;
-  display: block;
-  text-align: center;
-  margin-top: 12px;
-  cursor: pointer;
-  user-select: none;
-}
-
-small:hover {
-  text-decoration: underline;
+@media (max-width: 600px) {
+  nav a {
+    display: block;
+    margin: 5px 0;
+  }
 }
