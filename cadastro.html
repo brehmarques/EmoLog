@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <title>Cadastro - EmoLog</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <main>
+    <h2>Cadastro</h2>
+    <form onsubmit="fazerCadastro(event)">
+      <input type="email" id="cadastroEmail" placeholder="E-mail" required>
+      <input type="password" id="cadastroSenha" placeholder="Senha" required>
+      <button type="submit">Cadastrar</button>
+    </form>
+    <p>Já tem conta? <a href="login.html">Faça login</a></p>
+  </main>
+  <script src="js/auth.js"></script>
+</body>
+</html>
