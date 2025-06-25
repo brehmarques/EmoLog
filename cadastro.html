@@ -1,19 +1,19 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
   <title>Cadastro - EmoLog</title>
-  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/style.css" />
 </head>
 <body>
   <main>
     <h2>Cadastro</h2>
-    <form onsubmit="cadastrar(event)">
-      <input type="email" id="email" placeholder="E-mail" required>
-      <input type="password" id="senha" placeholder="Senha" required>
+    <form onsubmit="cadastrarUsuario(event)">
+      <input type="email" id="email" placeholder="Email" required />
+      <input type="password" id="senha" placeholder="Senha" required />
       <button type="submit">Cadastrar</button>
     </form>
-    <p>Já tem conta? <a href="login.html">Faça login</a></p>
+    <p>Já tem conta? <a href="login.html">Entrar</a></p>
   </main>
   <script type="module" src="js/auth.js"></script>
 </body>

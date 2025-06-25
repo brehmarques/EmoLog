@@ -1,6 +1,13 @@
-// Importação Firebase
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.5.0/firebase-app.js";
-import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/10.5.0/firebase-auth.js";
+import {
+  getAuth,
+  signInWithEmailAndPassword,
+  createUserWithEmailAndPassword,
+  signInWithPopup,
+  GoogleAuthProvider,
+  GithubAuthProvider,
+  signOut
+} from "https://www.gstatic.com/firebasejs/10.5.0/firebase-auth.js";
 
 const firebaseConfig = {
   apiKey: "AIzaSyAKIRwlHVwIDCVbZqH1cSZ7tbZEm-12Hkg",
@@ -14,33 +21,36 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
 
-window.cadastrar = function(event) {
+window.loginEmail = function(event) {
   event.preventDefault();
   const email = document.getElementById("email").value;
   const senha = document.getElementById("senha").value;
-
-  createUserWithEmailAndPassword(auth, email, senha)
-    .then((userCredential) => {
-      alert("Cadastro realizado com sucesso!");
-      window.location.href = "login.html";
-    })
-    .catch((error) => {
-      alert("Erro ao cadastrar: " + error.message);
-    });
-}
-
-window.login = function(event) {
-  event.preventDefault();
-  const email = document.getElementById("email").value;
-  const senha = document.getElementById("senha").value;
-
   signInWithEmailAndPassword(auth, email, senha)
-    .then((userCredential) => {
-      localStorage.setItem("logado", "true");
-      alert("Login realizado com sucesso!");
-      window.location.href = "diario.html";
-    })
-    .catch((error) => {
-      alert("Erro ao fazer login: " + error.message);
-    });
-}
+    .then(() => (window.location.href = "diario.html"))
+    .catch(err => alert("Erro: " + err.message));
+};
+
+window.cadastrarUsuario = function(event) {
+  event.preventDefault();
+  const email = document.getElementById("email").value;
+  const senha = document.getElementById("senha").value;
+  createUserWithEmailAndPassword(auth, email, senha)
+    .then(() => (window.location.href = "diario.html"))
+    .catch(err => alert("Erro: " + err.message));
+};
+
+window.loginGoogle = function() {
+  signInWithPopup(auth, new GoogleAuthProvider())
+    .then(() => (window.location.href = "diario.html"))
+    .catch(err => alert("Erro: " + err.message));
+};
+
+window.loginGitHub = function() {
+  signInWithPopup(auth, new GithubAuthProvider())
+    .then(() => (window.location.href = "diario.html"))
+    .catch(err => alert("Erro: " + err.message));
+};
+
+window.logout = function() {
+  signOut(auth).then(() => (window.location.href = "login.html"));
+};

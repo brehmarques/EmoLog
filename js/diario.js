@@ -1,50 +1,41 @@
-function registrarEmocao(event) {
-  event.preventDefault();
-  const data = document.getElementById("data").value;
-  const emocao = document.getElementById("emocao").value;
-  const descricao = document.getElementById("descricao").value;
+document.addEventListener("DOMContentLoaded", function () {
+  const formulario = document.getElementById("formDiario");
+  const lista = document.getElementById("listaRegistros");
 
-  const registro = { data, emocao, descricao };
-  let registros = JSON.parse(localStorage.getItem("registros")) || [];
-  registros.push(registro);
-  localStorage.setItem("registros", JSON.stringify(registros));
-  listarEmocoes();
+  function carregarRegistros() {
+    const registros = JSON.parse(localStorage.getItem("registros")) || [];
+    lista.innerHTML = "";
+    registros.forEach((item) => {
+      const li = document.createElement("li");
+      li.textContent = `${item.texto} ${item.arquivo ? `(Arquivo: ${item.arquivo})` : ""}`;
+      lista.appendChild(li);
+    });
+  }
+
+  if (formulario) {
+    formulario.addEventListener("submit", function (e) {
+      e.preventDefault();
+      const texto = document.getElementById("campoTexto").value;
+      const arquivoInput = document.getElementById("arquivo");
+      const arquivo = arquivoInput.files[0] ? arquivoInput.files[0].name : null;
+
+      const novoRegistro = { texto, arquivo };
+      const registros = JSON.parse(localStorage.getItem("registros")) || [];
+      registros.push(novoRegistro);
+      localStorage.setItem("registros", JSON.stringify(registros));
+
+      alert("Entrada registrada com sucesso!");
+      formulario.reset();
+      carregarRegistros();
+    });
+
+    carregarRegistros(); 
+  }
+});
+
+function selecionarEmoji(emoji) {
+  const campo = document.getElementById("campoTexto");
+  if (campo) {
+    campo.value += emoji;
+  }
 }
-
-function listarEmocoes() {
-  const tabela = document.querySelector("#tabela-emocoes tbody");
-  const registros = JSON.parse(localStorage.getItem("registros")) || [];
-  tabela.innerHTML = "";
-  registros.forEach(reg => {
-    const tr = document.createElement("tr");
-    tr.innerHTML = `<td>${reg.data}</td><td>${reg.emocao}</td><td>${reg.descricao}</td>`;
-    tabela.appendChild(tr);
-  });
-}
-
-function filtrarTabela() {
-  const palavra = document.getElementById("busca").value.toLowerCase();
-  const inicio = document.getElementById("dataInicio").value;
-  const fim = document.getElementById("dataFim").value;
-  const tabela = document.querySelector("#tabela-emocoes tbody");
-  const registros = JSON.parse(localStorage.getItem("registros")) || [];
-
-  tabela.innerHTML = "";
-
-  registros.forEach(reg => {
-    const dentroIntervalo =
-      (!inicio || reg.data >= inicio) &&
-      (!fim || reg.data <= fim);
-    const contemPalavra =
-      reg.descricao.toLowerCase().includes(palavra) ||
-      reg.emocao.toLowerCase().includes(palavra);
-
-    if (dentroIntervalo && contemPalavra) {
-      const tr = document.createElement("tr");
-      tr.innerHTML = `<td>${reg.data}</td><td>${reg.emocao}</td><td>${reg.descricao}</td>`;
-      tabela.appendChild(tr);
-    }
-  });
-}
-
-window.onload = listarEmocoes;

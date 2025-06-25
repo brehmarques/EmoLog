@@ -6,14 +6,14 @@ body {
   padding: 2rem;
 }
 main {
-  max-width: 400px;
+  max-width: 500px;
   margin: auto;
   background: white;
   padding: 2rem;
   border-radius: 10px;
   box-shadow: 0 0 10px rgba(0,0,0,0.1);
 }
-input, button {
+input, textarea, button {
   padding: 10px;
   margin: 10px 0;
   width: 100%;
@@ -28,8 +28,4 @@ button {
 }
 button:hover {
   background-color: #732d91;
-}
-a {
-  color: #8e44ad;
-  text-decoration: none;
 }

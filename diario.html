@@ -1,64 +1,37 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <title>Meu Diário</title>
-  <link rel="stylesheet" href="css/style.css">
+  <meta charset="UTF-8" />
+  <title>Meu Diário EmoLog</title>
+  <link rel="stylesheet" href="css/style.css" />
 </head>
 <body>
-  <header>
-    <h1>Registro de Emoções</h1>
-    <nav>
-      <a href="index.html">Início</a>
-      <a href="diario.html">Meu Diário</a>
-      <a href="sobre.html">Sobre</a>
-      <a href="faleconosco.html">Contato</a>
-    </nav>
-  </header>
-  <main>
-    <form onsubmit="registrarEmocao(event)">
-      <input type="date" id="data" required>
-      <select id="emocao">
-        <option value="Feliz 😊">Feliz 😊</option>
-        <option value="Triste 😢">Triste 😢</option>
-        <option value="Ansioso 😰">Ansioso 😰</option>
-        <option value="Calmo 😌">Calmo 😌</option>
-      </select>
-      <textarea id="descricao" placeholder="Conte mais..." required></textarea>
-      <button type="submit">Salvar Emoção</button>
-    </form>
+  <h1>Como você está se sentindo hoje?</h1>
 
-    <section>
-      <h2>Filtrar Emoções</h2>
-      <label for="busca">Buscar por palavra-chave:</label>
-      <input type="text" id="busca" oninput="filtrarTabela()">
+  <form id="formDiario">
+    <div>
+      <label for="campoTexto">Escreva sobre seu dia:</label><br />
+      <textarea id="campoTexto" rows="6" cols="40" placeholder="Digite aqui..."></textarea>
+    </div>
 
-      <label for="dataInicio">Data início:</label>
-      <input type="date" id="dataInicio" onchange="filtrarTabela()">
+    <div>
+      <p>Selecione um emoji:</p>
+      <span onclick="selecionarEmoji('😊')">😊</span>
+      <span onclick="selecionarEmoji('😢')">😢</span>
+      <span onclick="selecionarEmoji('😠')">😠</span>
+    </div>
 
-      <label for="dataFim">Data fim:</label>
-      <input type="date" id="dataFim" onchange="filtrarTabela()">
-    </section>
+    <div>
+      <label for="arquivo">Anexar arquivo (opcional):</label>
+      <input type="file" id="arquivo" />
+    </div>
 
-    <section id="lista-emocoes">
-      <h2>Registros Salvos</h2>
-      <table id="tabela-emocoes" border="1">
-        <thead>
-          <tr>
-            <th>Data</th>
-            <th>Emoção</th>
-            <th>Descrição</th>
-          </tr>
-        </thead>
-        <tbody></tbody>
-      </table>
-    </section>
-  <button onclick="exportarRegistros()">📥 Exportar Registros</button>
-  </main>
-  <footer>
-    <p>&copy; 2025 EmoLog</p>
-  </footer>
+    <button type="submit">Salvar entrada</button>
+  </form>
+
+  <h2>Registros anteriores:</h2>
+  <ul id="listaRegistros"></ul>
+
   <script src="js/diario.js"></script>
-  <script src="js/exportar.js"></script>
 </body>
 </html>

@@ -1,18 +1,20 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
   <title>Login - EmoLog</title>
-  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/style.css" />
 </head>
 <body>
   <main>
     <h2>Login</h2>
-    <form onsubmit="login(event)">
-      <input type="email" id="email" placeholder="E-mail" required>
-      <input type="password" id="senha" placeholder="Senha" required>
+    <form onsubmit="loginEmail(event)">
+      <input type="email" id="email" placeholder="Email" required />
+      <input type="password" id="senha" placeholder="Senha" required />
       <button type="submit">Entrar</button>
     </form>
+    <button onclick="loginGoogle()">Entrar com Google</button>
+    <button onclick="loginGitHub()">Entrar com GitHub</button>
     <p>Não tem conta? <a href="cadastro.html">Cadastre-se</a></p>
   </main>
   <script type="module" src="js/auth.js"></script>
