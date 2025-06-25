@@ -26,9 +26,9 @@ Oferecer uma ferramenta simples e acolhedora para que usuários possam registrar
 - `/js/diario.js` - Lógica do diário
 - `/js/faleconosco.js` - Lógica de contato
 
-## 🚀 Deploy
+## Deploy
 
-Visualize em: [https://seuusuario.github.io/EmoLog](https://seuusuario.github.io/EmoLog)
+Disponivel: https://brehmarques.github.io/EmoLog/ 
 
 ## 🧠 Desenvolvido por
 
