@@ -1,132 +1,35 @@
 body {
-  font-family: 'Segoe UI', Arial, sans-serif;
-  margin: 0;
-  padding: 0;
-  background-color: #fef6ff;
+  font-family: Arial, sans-serif;
+  background: #fdf6ff;
   color: #333;
-}
-
-header, footer {
-  background-color: #8e44ad;
-  color: white;
-  text-align: center;
-  padding: 1rem;
-}
-
-footer {
-  font-size: 0.9rem;
-}
-
-nav {
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  gap: 10px;
-  padding: 0.5rem;
-}
-
-nav a {
-  color: white;
-  background-color: #a569bd;
-  text-decoration: none;
-  padding: 8px 12px;
-  border-radius: 12px;
-  font-weight: 500;
-  transition: 0.3s;
-}
-
-nav a:hover {
-  background-color: #c39bd3;
-}
-
-nav a.login {
-  margin-left: auto;
-  background-color: #f1c40f;
-  color: #4a235a;
-  font-weight: bold;
-}
-
-main {
+  margin: 0;
   padding: 2rem;
-  max-width: 800px;
+}
+main {
+  max-width: 400px;
   margin: auto;
+  background: white;
+  padding: 2rem;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
 }
-
-form {
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-  background-color: white;
-  padding: 20px;
-  border-radius: 16px;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-}
-
-textarea, input, select {
+input, button {
   padding: 10px;
+  margin: 10px 0;
+  width: 100%;
   font-size: 1rem;
-  border-radius: 8px;
-  border: 1px solid #ccc;
-  font-family: inherit;
 }
-
 button {
   background-color: #8e44ad;
   color: white;
-  padding: 10px;
   border: none;
-  border-radius: 10px;
-  font-size: 1rem;
+  border-radius: 8px;
   cursor: pointer;
-  transition: 0.3s;
 }
-
 button:hover {
   background-color: #732d91;
 }
-
-table {
-  width: 100%;
-  border-collapse: collapse;
-  margin-top: 2rem;
+a {
+  color: #8e44ad;
+  text-decoration: none;
 }
-
-th, td {
-  border: 1px solid #ccc;
-  padding: 10px;
-  text-align: left;
-}
-
-th {
-  background-color: #f3e5f5;
-}
-
-@media (max-width: 600px) {
-  nav {
-    flex-direction: column;
-    align-items: center;
-  }
-
-  form {
-    padding: 15px;
-  }
-}
-nav a {
-  display: inline-block;
-  padding: 8px;
-  margin: 5px;
-  border-radius: 8px;
-  transition: 0.2s;
-}
-
-nav a:hover {
-  background-color: rgba(255, 255, 255, 0.2);
-}
-
-nav a.login {
-  float: right;
-  font-weight: bold;
-  color: yellow;
-  background-color: purple;
-}
-

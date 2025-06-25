@@ -8,13 +8,13 @@
 <body>
   <main>
     <h2>Login</h2>
-    <form onsubmit="fazerLogin(event)">
-      <input type="email" id="loginEmail" placeholder="E-mail" required>
-      <input type="password" id="loginSenha" placeholder="Senha" required>
+    <form onsubmit="login(event)">
+      <input type="email" id="email" placeholder="E-mail" required>
+      <input type="password" id="senha" placeholder="Senha" required>
       <button type="submit">Entrar</button>
     </form>
     <p>Não tem conta? <a href="cadastro.html">Cadastre-se</a></p>
   </main>
-  <script src="js/auth.js"></script>
+  <script type="module" src="js/auth.js"></script>
 </body>
 </html>

@@ -8,13 +8,13 @@
 <body>
   <main>
     <h2>Cadastro</h2>
-    <form onsubmit="fazerCadastro(event)">
-      <input type="email" id="cadastroEmail" placeholder="E-mail" required>
-      <input type="password" id="cadastroSenha" placeholder="Senha" required>
+    <form onsubmit="cadastrar(event)">
+      <input type="email" id="email" placeholder="E-mail" required>
+      <input type="password" id="senha" placeholder="Senha" required>
       <button type="submit">Cadastrar</button>
     </form>
     <p>Já tem conta? <a href="login.html">Faça login</a></p>
   </main>
-  <script src="js/auth.js"></script>
+  <script type="module" src="js/auth.js"></script>
 </body>
 </html>

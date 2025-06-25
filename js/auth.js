@@ -1,36 +1,46 @@
-function fazerCadastro(event) {
+// Importação Firebase
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.5.0/firebase-app.js";
+import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/10.5.0/firebase-auth.js";
+
+const firebaseConfig = {
+  apiKey: "AIzaSyAKIRwlHVwIDCVbZqH1cSZ7tbZEm-12Hkg",
+  authDomain: "emolog-a5270.firebaseapp.com",
+  projectId: "emolog-a5270",
+  storageBucket: "emolog-a5270.firebasestorage.app",
+  messagingSenderId: "837136150341",
+  appId: "1:837136150341:web:c6211df2d0effd98ff982c"
+};
+
+const app = initializeApp(firebaseConfig);
+const auth = getAuth(app);
+
+window.cadastrar = function(event) {
   event.preventDefault();
-  const email = document.getElementById("cadastroEmail").value;
-  const senha = document.getElementById("cadastroSenha").value;
-  const user = { email, senha };
-  localStorage.setItem("usuario", JSON.stringify(user));
-  alert("Cadastro realizado com sucesso!");
-  window.location.href = "login.html";
+  const email = document.getElementById("email").value;
+  const senha = document.getElementById("senha").value;
+
+  createUserWithEmailAndPassword(auth, email, senha)
+    .then((userCredential) => {
+      alert("Cadastro realizado com sucesso!");
+      window.location.href = "login.html";
+    })
+    .catch((error) => {
+      alert("Erro ao cadastrar: " + error.message);
+    });
 }
 
-function fazerLogin(event) {
+window.login = function(event) {
   event.preventDefault();
-  const email = document.getElementById("loginEmail").value;
-  const senha = document.getElementById("loginSenha").value;
-  const user = JSON.parse(localStorage.getItem("usuario"));
+  const email = document.getElementById("email").value;
+  const senha = document.getElementById("senha").value;
 
-  if (user && user.email === email && user.senha === senha) {
-    localStorage.setItem("logado", "true");
-    window.location.href = "diario.html";
-  } else {
-    alert("E-mail ou senha incorretos.");
-  }
-}
-
-function verificarLogin() {
-  const logado = localStorage.getItem("logado");
-  if (!logado || logado !== "true") {
-    alert("Você precisa estar logado para acessar essa página.");
-    window.location.href = "login.html";
-  }
-}
-
-function sair() {
-  localStorage.removeItem("logado");
-  window.location.href = "login.html";
+  signInWithEmailAndPassword(auth, email, senha)
+    .then((userCredential) => {
+      localStorage.setItem("logado", "true");
+      alert("Login realizado com sucesso!");
+      window.location.href = "diario.html";
+    })
+    .catch((error) => {
+      alert("Erro ao fazer login: " + error.message);
+    });
 }
